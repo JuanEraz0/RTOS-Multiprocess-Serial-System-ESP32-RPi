@@ -842,6 +842,13 @@
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/main/CMakeFiles/install.dir
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/main/CMakeFiles/install/local.dir
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/main/CMakeFiles/install/strip.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/CMakeFiles/__idf_adc.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/CMakeFiles/edit_cache.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/CMakeFiles/rebuild_cache.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/CMakeFiles/list_install_components.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/CMakeFiles/install.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/CMakeFiles/install/local.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/CMakeFiles/install/strip.dir
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/uart/CMakeFiles/__idf_uart.dir
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/uart/CMakeFiles/edit_cache.dir
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/uart/CMakeFiles/rebuild_cache.dir

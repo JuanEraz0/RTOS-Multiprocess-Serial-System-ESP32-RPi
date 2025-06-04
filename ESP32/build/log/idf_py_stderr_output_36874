@@ -1,0 +1,36 @@
+CMake Error at /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/tools/cmake/component.cmake:490 (add_library):
+  Cannot find source file:
+
+    /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/components/adc/uart.c
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+Call Stack (most recent call first):
+  components/adc/CMakeLists.txt:1 (idf_component_register)
+
+
+CMake Error at /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/tools/cmake/component.cmake:490 (add_library):
+  Cannot find source file:
+
+    /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/components/uart/adc.c
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+Call Stack (most recent call first):
+  components/uart/CMakeLists.txt:1 (idf_component_register)
+
+
+CMake Error at /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/tools/cmake/component.cmake:490 (add_library):
+  No SOURCES given to target: __idf_adc
+Call Stack (most recent call first):
+  components/adc/CMakeLists.txt:1 (idf_component_register)
+
+
+CMake Error at /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/tools/cmake/component.cmake:490 (add_library):
+  No SOURCES given to target: __idf_uart
+Call Stack (most recent call first):
+  components/uart/CMakeLists.txt:1 (idf_component_register)
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+ninja: error: rebuilding 'build.ninja': subcommand failed
