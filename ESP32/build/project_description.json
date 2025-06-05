@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "ESP32",
-    "project_version":    "cc3cb2a-dirty",
+    "project_version":    "05370f9-dirty",
     "project_path":       "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32",
     "idf_path":           "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf",
     "build_dir":          "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build",
@@ -1520,10 +1520,10 @@
             "dir": "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/components/ssd1306",
             "type": "LIBRARY",
             "lib": "__idf_ssd1306",
-            "reqs": [ "driver", "esp_driver_i2c" ],
-            "priv_reqs": [],
+            "reqs": [ "driver", "esp_driver_i2c", "esp_lcd", "lvgl__lvgl" ],
+            "priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "lvgl__lvgl" ],
             "managed_reqs": [],
-            "managed_priv_reqs": [],
+            "managed_priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "lvgl__lvgl" ],
             "file": "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/ssd1306/libssd1306.a",
             "sources": [ "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/components/ssd1306/ssd1306.c" ],
             "include_dirs": [ "." ]
@@ -2997,10 +2997,10 @@
             "prefix": "idf",
             "dir": "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/components/ssd1306",
             "lib": "__idf_ssd1306",
-            "reqs": [ "driver", "esp_driver_i2c" ],
-            "priv_reqs": [],
+            "reqs": [ "driver", "esp_driver_i2c", "esp_lcd", "lvgl__lvgl" ],
+            "priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "lvgl__lvgl" ],
             "managed_reqs": [],
-            "managed_priv_reqs": [],
+            "managed_priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "lvgl__lvgl" ],
             "include_dirs": [ "." ]
         },
         "uart": {

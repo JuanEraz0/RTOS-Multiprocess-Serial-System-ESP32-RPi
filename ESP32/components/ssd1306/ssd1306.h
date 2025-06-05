@@ -11,12 +11,12 @@
 #define PIN_NUM_SCL           GPIO_NUM_18
 #define PIN_NUM_RST           GPIO_NUM_21
 #define I2C_HW_ADDR           0x3C
-#define PIN_NUM_PWR           GPIO_NUM_36
-#define EXAMPLE_LCD_H_RES     128
-#define EXAMPLE_LCD_V_RES     64
+#define HVEX_PIN_NUM           GPIO_NUM_36
+#define LCD_H_RES     128
+#define LCD_V_RES     64
 // Bit number used to represent command and parameter
-#define EXAMPLE_LCD_CMD_BITS           8
-#define EXAMPLE_LCD_PARAM_BITS         8
+#define LCD_CMD_BITS           8
+#define LCD_PARAM_BITS         8
 
 
 
