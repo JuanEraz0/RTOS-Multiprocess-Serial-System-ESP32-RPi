@@ -12,7 +12,7 @@
 /*---- esp includes ----*/
 #include "esp_log.h"
 #include "lvgl.h"
-
+#include "esp_lvgl_port.h"
 
 /*---- project includes ----*/
 #include "uart.h"
@@ -21,6 +21,7 @@
 #include "ssd1306.h"
 
 static const char *TAG = "UART_COMMUNICATION";
+static const char *I2C_TAG = "I2C_BUS_CONFIGURATION";
 
 static esp_err_t drivers_setup();
 
@@ -28,29 +29,46 @@ int adcRawValue;
 int voltage;
 int temperature;
 
+lv_disp_t *disp = NULL;
+
 
 void app_main(){
-    
     ESP_ERROR_CHECK(drivers_setup());
     ESP_LOGI(TAG, "DRIVERS SETTED UP CORRECTLY");
-    while(1){
-        if(adc_lecture(&adcRawValue) == ESP_OK){
-            voltage = 3300*adcRawValue/4096;
-            temperature = voltage/10;
-            ESP_LOGI(TAG, "Raw ADC lecture: %d, Voltage: %d mV, Temperature (ºC) %d", adcRawValue, voltage, temperature);
-        } 
-        vTaskDelay(pdMS_TO_TICKS(1000));
+
+    lv_disp_set_rotation(disp, LV_DISP_ROT_NONE);
+    
+    // Crear UI (solo una vez)
+    if (lvgl_port_lock(0)) {
+        example_lvgl_demo_ui(disp);
+        lvgl_port_unlock();
     }
 
+    while(1){
+        if(adc_lecture(&adcRawValue) == ESP_OK){
+            voltage = 3300 * adcRawValue / 4096;
+            temperature = voltage / 10;
 
+            ESP_LOGI(TAG, "Raw ADC: %d, Voltage: %d mV, Temp: %d ºC", adcRawValue, voltage, temperature);
+
+            // Actualizar texto en display
+            if (lvgl_port_lock(0)) {
+                update_adc_label(voltage, temperature);
+                lvgl_port_unlock();
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
 }
+
 
 static esp_err_t drivers_setup(){
     
     uart_config_init();
     adc_config_init();
-    //i2c_master_init();
+    i2c_master_init();
     ssd1306_init();
+    lvgl_init(&disp);
 
     return ESP_OK;
 

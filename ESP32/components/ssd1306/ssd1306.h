@@ -1,6 +1,14 @@
 #ifndef SS1306_H
 #define SS1306_H
 
+#include "esp_lcd_panel_io.h"
+#include "esp_lcd_panel_ops.h"
+#include "esp_err.h"
+#include "esp_log.h"
+#include "driver/i2c_master.h"
+#include "esp_lvgl_port.h"
+#include "driver/gpio.h" 
+#include "esp_lcd_panel_vendor.h"
 
 
 
@@ -24,7 +32,10 @@ void i2c_master_init(void);
 
 void ssd1306_init(void);
 
+void lvgl_init( lv_disp_t **lvglDisp);
 
+void example_lvgl_demo_ui(lv_disp_t *disp);
+void update_adc_label(int voltage, int temperature);
 
 
 

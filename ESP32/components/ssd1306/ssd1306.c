@@ -1,17 +1,11 @@
 #include <stdio.h>
 #include "ssd1306.h"
-#include "esp_lcd_panel_io.h"
-#include "esp_lcd_panel_ops.h"
-#include "esp_err.h"
-#include "esp_log.h"
-#include "driver/i2c_master.h"
-#include "esp_lvgl_port.h"
-#include "driver/gpio.h" 
-#include "esp_lcd_panel_vendor.h"
+
 
 i2c_master_bus_handle_t i2c_bus = NULL;
 esp_lcd_panel_io_handle_t io_handle = NULL;
 esp_lcd_panel_handle_t panel_handle = NULL;
+static lv_obj_t *label_adc = NULL;
 const lvgl_port_cfg_t lvgl_cfg = ESP_LVGL_PORT_INIT_CONFIG();
 
 static void gpio36_init(void){
@@ -97,3 +91,43 @@ void ssd1306_init(void){
     lv_disp_set_rotation(disp, LV_DISP_ROT_NONE);
 }
 
+void lvgl_init(lv_disp_t **lvglDisp){
+    
+    lvgl_port_init(&lvgl_cfg);
+
+    const lvgl_port_display_cfg_t disp_cfg = {
+        .io_handle = io_handle,
+        .panel_handle = panel_handle,
+        .buffer_size = LCD_H_RES * LCD_V_RES,
+        .double_buffer = true,
+        .hres = LCD_H_RES,
+        .vres = LCD_V_RES,
+        .monochrome = true,
+        .rotation = {
+            .swap_xy = false,
+            .mirror_x = false,
+            .mirror_y = false,
+        }
+    };
+
+    *lvglDisp = lvgl_port_add_disp(&disp_cfg);
+}
+
+void example_lvgl_demo_ui(lv_disp_t *disp)
+{
+    lv_obj_t *scr = lv_disp_get_scr_act(disp);
+    label_adc = lv_label_create(scr);  // asignar a variable global
+    lv_label_set_long_mode(label_adc, LV_LABEL_LONG_SCROLL_CIRCULAR);
+    lv_label_set_text(label_adc, "Iniciando...");
+    lv_obj_set_width(label_adc, disp->driver->hor_res);
+    lv_obj_align(label_adc, LV_ALIGN_TOP_MID, 0, 0);
+}
+
+void update_adc_label(int voltage, int temperature)
+{
+    if(label_adc) {
+        char buf[64];
+        snprintf(buf, sizeof(buf), "Voltaje: %d mV\nTemperatura: %d ºC", voltage, temperature);
+        lv_label_set_text(label_adc, buf);
+    }
+}
