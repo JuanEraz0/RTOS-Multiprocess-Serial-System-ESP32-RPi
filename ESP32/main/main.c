@@ -17,7 +17,7 @@
 #include "uart.h"
 #include "adc.h"
 #include "pwm.h"
-#include "ssd1366.h"
+#include "ssd1306.h"
 
 static const char *TAG = "UART_COMMUNICATION";
 
@@ -48,8 +48,8 @@ static esp_err_t drivers_setup(){
     
     uart_config_init();
     adc_config_init();
-    i2c_master_init();
-    ssd1366_init();
+    //i2c_master_init();
+    ssd1306_init();
 
     return ESP_OK;
 

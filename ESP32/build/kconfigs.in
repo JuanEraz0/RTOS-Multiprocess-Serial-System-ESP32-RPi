@@ -75,3 +75,4 @@ source "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/components/v
 source "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/components/wear_levelling/Kconfig"
 source "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/components/wifi_provisioning/Kconfig"
 source "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/components/uart/Kconfig"
+source "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/managed_components/lvgl__lvgl/Kconfig"
