@@ -1,9 +1,10 @@
 #include "uart.h"
 #include "driver/uart.h"
+#include "driver/gpio.h"
 
 #define UART_PORT (UART_NUM_0)
-#define UART_TX_PIN (6)
-#define UART_RX_PIN (5)
+#define UART_TX_PIN (GPIO_NUM_6)
+#define UART_RX_PIN (GPIO_NUM_5)
 #define RTS (UART_PIN_NO_CHANGE)
 #define CTS (UART_PIN_NO_CHANGE)
 #define UART_BAUD_RATE (115200)

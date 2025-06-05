@@ -85,4 +85,6 @@
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/main/libmain.a
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/adc/libadc.a
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/pwm/libpwm.a
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/ssd1366/libssd1366.a
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/uart/libuart.a

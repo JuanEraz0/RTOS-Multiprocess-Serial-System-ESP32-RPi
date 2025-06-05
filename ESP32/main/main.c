@@ -11,10 +11,13 @@
 
 /*---- esp includes ----*/
 #include "esp_log.h"
+#include "lvgl.h"
 
 /*---- project includes ----*/
 #include "uart.h"
 #include "adc.h"
+#include "pwm.h"
+#include "ssd1366.h"
 
 static const char *TAG = "UART_COMMUNICATION";
 
@@ -45,6 +48,8 @@ static esp_err_t drivers_setup(){
     
     uart_config_init();
     adc_config_init();
+    i2c_master_init();
+    ssd1366_init();
 
     return ESP_OK;
 

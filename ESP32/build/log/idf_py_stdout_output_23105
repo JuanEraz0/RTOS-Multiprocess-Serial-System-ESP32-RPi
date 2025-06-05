@@ -1,0 +1,99 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun  4 2025 16:01:42[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0c738h ( 51000) map[0m
+[0;32mI (97) esp_image: segment 1: paddr=0001c760 vaddr=3fc93900 size=02aa8h ( 10920) load[0m
+[0;32mI (100) esp_image: segment 2: paddr=0001f210 vaddr=40374000 size=00e08h (  3592) load[0m
+[0;32mI (104) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1d89ch (120988) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=0003d8c4 vaddr=40374e08 size=0eac4h ( 60100) load[0m
+[0;32mI (146) esp_image: segment 5: paddr=0004c390 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (152) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (152) boot: Disabling RNG early entropy source...[0m
+[0;32mI (163) cpu_start: Multicore app[0m
+[0;32mI (172) cpu_start: Pro cpu start user code[0m
+[0;32mI (172) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (172) app_init: Application information:[0m
+[0;32mI (173) app_init: Project name:     ESP32[0m
+[0;32mI (176) app_init: App version:      bc65e6b-dirty[0m
+[0;32mI (181) app_init: Compile time:     Jun  4 2025 16:01:33[0m
+[0;32mI (186) app_init: ELF file SHA256:  18f99bfee...[0m
+[0;32mI (190) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (194) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (198) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (202) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (206) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (212) heap_init: At 3FC96CF0 len 00052A20 (330 KiB): RAM[0m
+[0;32mI (217) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (222) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (234) spi_flash: detected chip: gd[0m
+[0;32mI (236) spi_flash: flash io: dio[0m
+[0;33mW (239) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (251) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (261) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (267) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+I (2�I (284) UART_COMMUNICATION: DRIVERS SETTED UP CORRECTLY
+[0;32mI (284) UART_COMMUNICATION: Raw ADC lecture: 313, Voltage: 252 mV, Temperature (ºC) 25[0m
+[0;32mI (1284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (2284) UART_COMMUNICATION: Raw ADC lecture: 313, Voltage: 252 mV, Temperature (ºC) 25[0m
+[0;32mI (3284) UART_COMMUNICATION: Raw ADC lecture: 310, Voltage: 249 mV, Temperature (ºC) 24[0m
+[0;32mI (4284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (5284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (6284) UART_COMMUNICATION: Raw ADC lecture: 312, Voltage: 251 mV, Temperature (ºC) 25[0m
+[0;32mI (7284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (8284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (9284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (10284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (11284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (12284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (13284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (14284) UART_COMMUNICATION: Raw ADC lecture: 312, Voltage: 251 mV, Temperature (ºC) 25[0m
+[0;32mI (15284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (16284) UART_COMMUNICATION: Raw ADC lecture: 313, Voltage: 252 mV, Temperature (ºC) 25[0m
+[0;32mI (17284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (18284) UART_COMMUNICATION: Raw ADC lecture: 313, Voltage: 252 mV, Temperature (ºC) 25[0m
+[0;32mI (19284) UART_COMMUNICATION: Raw ADC lecture: 313, Voltage: 252 mV, Temperature (ºC) 25[0m
+[0;32mI (20284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (21284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (22284) UART_COMMUNICATION: Raw ADC lecture: 313, Voltage: 252 mV, Temperature (ºC) 25[0m
+[0;32mI (23284) UART_COMMUNICATION: Raw ADC lecture: 313, Voltage: 252 mV, Temperature (ºC) 25[0m
+[0;32mI (24284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (25284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (26284) UART_COMMUNICATION: Raw ADC lecture: 312, Voltage: 251 mV, Temperature (ºC) 25[0m
+[0;32mI (27284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (28284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (29284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (30284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (31284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (32284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (33284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (34284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (35284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (36284) UART_COMMUNICATION: Raw ADC lecture: 312, Voltage: 251 mV, Temperature (ºC) 25[0m
+[0;32mI (37284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (38284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (39284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (40284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
+[0;32mI (41284) UART_COMMUNICATION: Raw ADC lecture: 311, Voltage: 250 mV, Temperature (ºC) 25[0m
