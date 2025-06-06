@@ -38,7 +38,7 @@ void app_main(){
 
     lv_disp_set_rotation(disp, LV_DISP_ROT_NONE);
     
-    // Crear UI (solo una vez)
+    //  First time to create UI
     if (lvgl_port_lock(0)) {
         example_lvgl_demo_ui(disp);
         lvgl_port_unlock();
@@ -51,11 +51,17 @@ void app_main(){
 
             ESP_LOGI(TAG, "Raw ADC: %d, Voltage: %d mV, Temp: %d ºC", adcRawValue, voltage, temperature);
 
-            // Actualizar texto en display
+            // Update Text in UI
             if (lvgl_port_lock(0)) {
                 update_adc_label(voltage, temperature);
                 lvgl_port_unlock();
             }
+           vTaskDelay(pdMS_TO_TICKS(1000));
+            if (lvgl_port_lock(0)) {
+                update_generic_label("PWM: ");
+                lvgl_port_unlock();
+            }
+
         }
         vTaskDelay(pdMS_TO_TICKS(1000));
     }

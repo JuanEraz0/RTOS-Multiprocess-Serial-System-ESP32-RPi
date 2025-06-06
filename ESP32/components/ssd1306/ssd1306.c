@@ -116,8 +116,8 @@ void lvgl_init(lv_disp_t **lvglDisp){
 void example_lvgl_demo_ui(lv_disp_t *disp)
 {
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
-    label_adc = lv_label_create(scr);  // asignar a variable global
-    lv_label_set_long_mode(label_adc, LV_LABEL_LONG_SCROLL_CIRCULAR);
+    label_adc = lv_label_create(scr); 
+    lv_label_set_long_mode(label_adc, LV_LABEL_LONG_WRAP);
     lv_label_set_text(label_adc, "Iniciando...");
     lv_obj_set_width(label_adc, disp->driver->hor_res);
     lv_obj_align(label_adc, LV_ALIGN_TOP_MID, 0, 0);
@@ -127,7 +127,13 @@ void update_adc_label(int voltage, int temperature)
 {
     if(label_adc) {
         char buf[64];
-        snprintf(buf, sizeof(buf), "Voltaje: %d mV\nTemperatura: %d ºC", voltage, temperature);
+        snprintf(buf, sizeof(buf), "VoltajeADC: %d mV\nTemperatura: %d C", voltage, temperature);
         lv_label_set_text(label_adc, buf);
     }
+}
+
+void update_generic_label(void * genericData){
+
+    lv_label_set_text(label_adc, genericData);
+    
 }
