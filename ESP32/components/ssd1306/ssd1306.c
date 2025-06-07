@@ -132,6 +132,17 @@ void update_adc_label(int voltage, int temperature)
     }
 }
 
+
+void update_servo_label(int servo_angle)
+{
+    if(label_adc) {
+        char buf[64];
+        snprintf(buf, sizeof(buf), "Servo Angle: %d ", servo_angle);
+        lv_label_set_text(label_adc, buf);
+    }
+}
+
+
 void update_generic_label(void * genericData){
 
     lv_label_set_text(label_adc, genericData);

@@ -28,6 +28,7 @@ static esp_err_t drivers_setup();
 int adcRawValue;
 int voltage;
 int temperature;
+int servoAngle;
 
 lv_disp_t *disp = NULL;
 
@@ -57,10 +58,16 @@ void app_main(){
                 lvgl_port_unlock();
             }
            vTaskDelay(pdMS_TO_TICKS(1000));
+           servoAngle = 90;
+           
             if (lvgl_port_lock(0)) {
-                update_generic_label("PWM: ");
+                update_servo_label(servoAngle);
+                set_servoAngle(&servoAngle);
                 lvgl_port_unlock();
             }
+            vTaskDelay(pdMS_TO_TICKS(1000));
+            servoAngle = -90;
+            //set_servoAngle(&servoAngle);
 
         }
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -75,6 +82,7 @@ static esp_err_t drivers_setup(){
     i2c_master_init();
     ssd1306_init();
     lvgl_init(&disp);
+    init_TIMER();
 
     return ESP_OK;
 
