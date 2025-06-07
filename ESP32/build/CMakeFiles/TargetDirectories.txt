@@ -891,3 +891,10 @@
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/main/CMakeFiles/install.dir
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/main/CMakeFiles/install/local.dir
 /mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/main/CMakeFiles/install/strip.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/touch/CMakeFiles/__idf_touch.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/touch/CMakeFiles/edit_cache.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/touch/CMakeFiles/rebuild_cache.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/touch/CMakeFiles/list_install_components.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/touch/CMakeFiles/install.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/touch/CMakeFiles/install/local.dir
+/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build/esp-idf/touch/CMakeFiles/install/strip.dir
