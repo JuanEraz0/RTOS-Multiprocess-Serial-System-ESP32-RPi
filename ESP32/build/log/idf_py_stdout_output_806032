@@ -1,0 +1,971 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 11 2025 04:18:31[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=152cch ( 86732) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=000252f4 vaddr=3fc94400 size=02b58h ( 11096) load[0m
+[0;32mI (107) esp_image: segment 2: paddr=00027e54 vaddr=40374000 size=081c4h ( 33220) load[0m
+[0;32mI (115) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=50e7ch (331388) map[0m
+[0;32mI (174) esp_image: segment 4: paddr=00080ea4 vaddr=4037c1c4 size=081bch ( 33212) load[0m
+[0;32mI (182) esp_image: segment 5: paddr=00089068 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (188) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (188) boot: Disabling RNG early entropy source...[0m
+[0;32mI (200) cpu_start: Multicore app[0m
+[0;32mI (209) cpu_start: Pro cpu start user code[0m
+[0;32mI (209) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (209) app_init: Application information:[0m
+[0;32mI (209) app_init: Project name:     ESP32[0m
+[0;32mI (212) app_init: App version:      e698438-dirty[0m
+[0;32mI (217) app_init: Compile time:     Jun 11 2025 04:57:27[0m
+[0;32mI (222) app_init: ELF file SHA256:  ceb4d3bae...[0m
+[0;32mI (226) app_init: ESP-IDF:          v5.4.1-dirty[0m
+[0;32mI (231) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (234) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (238) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (242) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (249) heap_init: At 3FC9FEE0 len 00049830 (294 KiB): RAM[0m
+[0;32mI (254) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (259) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (264) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (270) spi_flash: detected chip: gd[0m
+[0;32mI (273) spi_flash: flash io: dio[0m
+[0;33mW (276) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (288) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (294) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (301) main_task: Started on CPU0[0m
+[0;32mI (321) main_task: Calling app_main()[0m
+[0;32mI (321) gpio: GPIO[36]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (321) gpio: GPIO[21]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (451) LVGL: Starting LVGL task[0m
+[0;32mI (451) LVGL: Starting LVGL task[0m
+[0;33mW (461) lcd_panel.io.i2c: Callback on_color_trans_done was already set and now it was overwritten![0m
+[0;32mI (461) TIMER: Create timer and operator[0m
+[0;32mI (461) TIMER: Connect timer and operator[0m
+[0;32mI (461) TIMER: Create comparator and generator from the operator[0m
+[0;32mI (471) TIMER: Set generator action on timer and compare event[0m
+[0;32mI (471) TIMER: Enable and start timer[0m
+[0;32mI (481) gpio: GPIO[48]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (481) DC_MOTOR: Create DC motor[0m
+[0;32mI (491) DC_MOTOR: Motor created successfully[0m
+[0;32mI (491) DC_MOTOR: Enable motor[0m
+[0;32mI (491) DC_MOTOR: Motor enabled successfully[0m
+[0;32mI (501) DC_MOTOR: Set motor direction: FORWARD[0m
+[0;32mI (501) DC_MOTOR: Direction set successfully[0m
+[0;32mI (511) MAIN_DEBUGG_TAG: Initializing touch pad[0m
+[0;32mI (511) MAIN_DEBUGG_TA�I (521) UART0_COMM: UART0 configured for USB communication to Raspberry Pi[0m
+[0;32mI (521) MAIN_DEBUGG_TAG: DRIVERS SETTED UP CORRECTLY[0m
+[0;32mI (531) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (531) MAIN_DEBUGG_TAG: All tasks created successfully[0m
+[0;32mI (581) TOUCH_PAD: touch pad [2] base 27302, thresh 5460[0m
+[0;32mI (581) TOUCH_PAD: touch pad [3] base 27012, thresh 5402[0m
+[0;32mI (581) TOUCH_PAD: touch pad [4] base 27383, thresh 5476[0m
+[0;32mI (581) TOUCH_PAD: touch pad [5] base 27296, thresh 5459[0m
+[0;32mI (581) TOUCH_PAD: touch pad [6] base 28105, thresh 5621[0m
+[0;32mI (591) TOUCH_PAD: touch pad [7] base 26371, thresh 5274[0m
+[0;32mI (631) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (731) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (831) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (931) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (1031) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (1131) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (1231) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (1331) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (1431) MAIN_DEBUGG_TAG: Raw ADC: 283, Voltage: 228 mV, Temp: 22 ºC[0m
+[0;32mI (1531) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (1631) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (1731) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (1831) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (1931) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (2031) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (2131) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (2231) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (2331) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (2431) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (2531) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (2631) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (2701) MAIN_DEBUGG_TAG: Push button pressed - sending temperature data[0m
+[0;32mI (2701) UART0_COMM: Sending 22 temperature readings to Raspberry Pi[0m
+[0;32mI (2701) UART0_COMM: Temperature data sent successfully[0m
+TEMP_DATA_START:22
+23
+23
+23
+22
+23
+22
+23
+22
+23
+22
+22
+23
+23
+23
+23
+23
+23
+23
+22
+23
+23
+23
+TEMP_DATA_END
+[0;32mI (2731) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (2831) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (2881) MAIN_DEBUGG_TAG: Push button pressed - sending temperature data[0m
+[0;32mI (2881) UART0_COMM: Sending 2 temperature readings to Raspberry Pi[0m
+[0;32mI (2891) UART0_COMM: Temperature data sent successfully[0m
+[0;32mI (2891) MAIN_DEBUGG_TAG: Push button pressed - sending temperature data[0m
+[0;32mI (2901) UART0_COMM: Sending 0 temperature readings to Raspberry Pi[0m
+[0;32mI (2901) UART0_COMM: Temperature data sent successfully[0m
+TEMP_DATA_START:2
+23
+23
+TEMP_DATA_END
+TEMP_DATA_START:0
+TEMP_DATA_END
+[0;32mI (2931) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (3031) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (3131) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (3231) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (3331) MAIN_DEBUGG_TAG: Raw ADC: 283, Voltage: 228 mV, Temp: 22 ºC[0m
+[0;32mI (3431) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (3531) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (3631) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (3731) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (3831) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (3931) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (4031) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (4131) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (4231) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (4331) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (4431) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (4531) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (4631) MAIN_DEBUGG_TAG: Raw ADC: 283, Voltage: 228 mV, Temp: 22 ºC[0m
+[0;32mI (4731) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (4831) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (4931) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (5031) MAIN_DEBUGG_TAG: Raw ADC: 284, Voltage: 228 mV, Temp: 22 ºC[0m
+[0;32mI (5121) MAIN_DEBUGG_TAG: Push button pressed - sending temperature data[0m
+[0;32mI (5121) UART0_COMM: Sending 22 temperature readings to Raspberry Pi[0m
+[0;32mI (5121) UART0_COMM: Temperature data sent successfully[0m
+[0;32mI (5131) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+TEMP_DATA_START:22
+23
+22
+22
+22
+22
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+22
+22
+23
+23
+23
+22
+TEMP_DATA_END
+[0;32mI (5231) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (5331) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (5431) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (5481) MAIN_DEBUGG_TAG: Push button pressed - sending temperature data[0m
+[0;32mI (5481) UART0_COMM: Sending 4 temperature readings to Raspberry Pi[0m
+[0;32mI (5481) UART0_COMM: Temperature data sent successfully[0m
+[0;32mI (5491) MAIN_DEBUGG_TAG: Push button pressed - sending temperature data[0m
+[0;32mI (5491) UART0_COMM: Sending 0 temperature readings to Raspberry Pi[0m
+[0;32mI (5501) UART0_COMM: Temperature data sent successfully[0m
+TEMP_DATA_START:4
+23
+23
+22
+23
+TEMP_DATA_END
+TEMP_DATA_START:0
+TEMP_DATA_END
+[0;32mI (5531) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (5631) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (5731) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (5831) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (5931) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (6031) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (6131) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (6231) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (6331) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (6431) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (6531) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (6631) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (6731) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (6831) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (6931) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (7031) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (7131) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (7231) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (7331) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (7431) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (7531) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (7631) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (7731) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (7831) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (7931) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (8031) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (8131) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (8231) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (8331) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (8431) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (8531) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (8631) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (8731) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (8831) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (8931) MAIN_DEBUGG_TAG: Raw ADC: 281, Voltage: 226 mV, Temp: 22 ºC[0m
+[0;32mI (9031) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (9131) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (9231) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (9331) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (9371) MAIN_DEBUGG_TAG: Motor speed increased: 310[0m
+(23,0,310)
+[0;32mI (9431) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (9531) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (9631) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (9731) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (9781) MAIN_DEBUGG_TAG: Motor speed increased: 320[0m
+(23,0,320)
+[0;32mI (9831) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (9931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (10031) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (10131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (10231) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (10331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (10431) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (10531) MAIN_DEBUGG_TAG: Raw ADC: 299, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (10631) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (10731) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (10801) MAIN_DEBUGG_TAG: Motor speed increased: 330[0m
+(23,0,330)
+[0;32mI (10831) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (10931) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (11031) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (11131) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (11231) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (11311) MAIN_DEBUGG_TAG: Motor speed increased: 340[0m
+(23,0,340)
+[0;32mI (11331) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (11431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (11531) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (11631) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (11671) MAIN_DEBUGG_TAG: Motor speed increased: 350[0m
+(23,0,350)
+[0;32mI (11731) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (11831) MAIN_DEBUGG_TAG: Raw ADC: 298, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (11921) MAIN_DEBUGG_TAG: Motor speed increased: 360[0m
+[0;32mI (11931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+(24,0,360)
+[0;32mI (12031) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (12131) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (12131) MAIN_DEBUGG_TAG: Motor speed increased: 370[0m
+(23,0,370)
+[0;32mI (12231) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (12331) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (12381) MAIN_DEBUGG_TAG: Motor speed increased: 380[0m
+(23,0,380)
+[0;32mI (12431) MAIN_DEBUGG_TAG: Raw ADC: 299, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (12531) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (12591) MAIN_DEBUGG_TAG: Motor speed increased: 390[0m
+(23,0,390)
+[0;32mI (12631) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (12731) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (12831) MAIN_DEBUGG_TAG: Raw ADC: 300, Voltage: 241 mV, Temp: 24 ºC[0m
+[0;32mI (12931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (13031) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (13131) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (13231) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (13331) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (13431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (13531) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (13631) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (13731) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (13831) MAIN_DEBUGG_TAG: Raw ADC: 299, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (13931) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (14031) MAIN_DEBUGG_TAG: Raw ADC: 299, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (14131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (14231) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (14331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (14431) MAIN_DEBUGG_TAG: Raw ADC: 299, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (14531) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (14631) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (14701) MAIN_DEBUGG_TAG: Motor turned off[0m
+(23,0,270)
+[0;32mI (14731) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (14831) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (14931) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (15031) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (15131) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (15231) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (15331) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (15431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (15501) MAIN_DEBUGG_TAG: Motor turned off[0m
+(23,0,270)
+[0;32mI (15531) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (15631) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (15731) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (15831) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (15931) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (16031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (16131) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (16231) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (16301) MAIN_DEBUGG_TAG: Motor turned off[0m
+(23,0,270)
+[0;32mI (16331) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (16431) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (16531) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (16631) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (16731) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (16831) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (16931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (17031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (17121) MAIN_DEBUGG_TAG: Motor speed decreased: 260[0m
+(23,0,260)
+[0;32mI (17131) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (17231) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (17331) MAIN_DEBUGG_TAG: Raw ADC: 284, Voltage: 228 mV, Temp: 22 ºC[0m
+[0;32mI (17431) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (17531) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (17631) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (17731) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (17831) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (17931) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (18031) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (18131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (18231) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (18331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (18431) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (18531) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (18631) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (18731) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (18831) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (18931) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (19031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (19131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (19231) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (19331) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (19431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (19531) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (19631) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (19731) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (19831) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (19931) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (20031) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (20131) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (20231) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (20331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (20431) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (20531) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (20591) MAIN_DEBUGG_TAG: Servo angle: -10°[0m
+(23,-10,260)
+[0;32mI (20631) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (20731) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (20831) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (20931) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (21031) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (21051) MAIN_DEBUGG_TAG: Servo angle: -20°[0m
+(23,-20,260)
+[0;32mI (21131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (21231) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (21331) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (21381) MAIN_DEBUGG_TAG: Servo angle: -30°[0m
+(23,-30,260)
+[0;32mI (21431) MAIN_DEBUGG_TAG: Raw ADC: 307, Voltage: 247 mV, Temp: 24 ºC[0m
+[0;32mI (21531) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (21631) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (21641) MAIN_DEBUGG_TAG: Servo angle: -40°[0m
+(23,-40,260)
+[0;32mI (21731) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (21831) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (21931) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (22031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (22131) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (22231) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (22331) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (22391) MAIN_DEBUGG_TAG: Servo angle: -50°[0m
+(23,-50,260)
+[0;32mI (22431) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (22531) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (22631) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (22681) MAIN_DEBUGG_TAG: Servo angle: -60°[0m
+(23,-60,260)
+[0;32mI (22731) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (22831) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (22931) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (22951) MAIN_DEBUGG_TAG: Servo angle: -70°[0m
+(22,-70,260)
+[0;32mI (23031) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (23131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (23181) MAIN_DEBUGG_TAG: Servo angle: -80°[0m
+(23,-80,260)
+[0;32mI (23231) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (23331) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (23411) MAIN_DEBUGG_TAG: Servo angle: -90°[0m
+(23,-90,260)
+[0;32mI (23431) MAIN_DEBUGG_TAG: Raw ADC: 366, Voltage: 294 mV, Temp: 29 ºC[0m
+[0;32mI (23531) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (23631) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (23731) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (23831) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (23931) MAIN_DEBUGG_TAG: Raw ADC: 281, Voltage: 226 mV, Temp: 22 ºC[0m
+[0;32mI (24031) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (24131) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (24231) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (24331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (24431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (24531) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (24631) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (24731) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (24831) MAIN_DEBUGG_TAG: Raw ADC: 298, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (24931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (25031) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (25131) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (25231) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (25331) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (25431) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (25531) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (25631) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (25731) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (25821) MAIN_DEBUGG_TAG: Servo angle: -80°[0m
+(23,-80,260)
+[0;32mI (25831) MAIN_DEBUGG_TAG: Raw ADC: 365, Voltage: 294 mV, Temp: 29 ºC[0m
+[0;32mI (25931) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (26031) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (26131) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (26231) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (26331) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (26341) MAIN_DEBUGG_TAG: Servo angle: -70°[0m
+(23,-70,260)
+[0;32mI (26431) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (26531) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (26631) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (26721) MAIN_DEBUGG_TAG: Servo angle: -60°[0m
+(23,-60,260)
+[0;32mI (26731) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (26831) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (26931) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (27031) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (27031) MAIN_DEBUGG_TAG: Servo angle: -50°[0m
+(22,-50,260)
+[0;32mI (27131) MAIN_DEBUGG_TAG: Raw ADC: 317, Voltage: 255 mV, Temp: 25 ºC[0m
+[0;32mI (27231) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (27311) MAIN_DEBUGG_TAG: Servo angle: -40°[0m
+(23,-40,260)
+[0;32mI (27331) MAIN_DEBUGG_TAG: Raw ADC: 371, Voltage: 298 mV, Temp: 29 ºC[0m
+[0;32mI (27431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (27531) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (27581) MAIN_DEBUGG_TAG: Servo angle: -30°[0m
+(23,-30,260)
+[0;32mI (27631) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (27731) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (27831) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (27931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (28031) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (28131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (28171) MAIN_DEBUGG_TAG: Servo angle: -20°[0m
+(23,-20,260)
+[0;32mI (28231) MAIN_DEBUGG_TAG: Raw ADC: 290, Voltage: 233 mV, Temp: 23 ºC[0m
+[0;32mI (28331) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (28431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (28531) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (28601) MAIN_DEBUGG_TAG: Servo angle: -10°[0m
+(23,-10,260)
+[0;32mI (28631) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (28731) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (28831) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (28921) MAIN_DEBUGG_TAG: Servo angle: 0°[0m
+(23,0,260)
+[0;32mI (28931) MAIN_DEBUGG_TAG: Raw ADC: 375, Voltage: 302 mV, Temp: 30 ºC[0m
+[0;32mI (29031) MAIN_DEBUGG_TAG: Raw ADC: 290, Voltage: 233 mV, Temp: 23 ºC[0m
+[0;32mI (29131) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (29181) MAIN_DEBUGG_TAG: Servo angle: 10°[0m
+(23,10,260)
+[0;32mI (29231) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (29331) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (29431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (29441) MAIN_DEBUGG_TAG: Servo angle: 20°[0m
+(23,20,260)
+[0;32mI (29531) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (29631) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (29711) MAIN_DEBUGG_TAG: Servo angle: 30°[0m
+(23,30,260)
+[0;32mI (29731) MAIN_DEBUGG_TAG: Raw ADC: 371, Voltage: 298 mV, Temp: 29 ºC[0m
+[0;32mI (29831) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (29931) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (30031) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (30031) MAIN_DEBUGG_TAG: Servo angle: 40°[0m
+(23,40,260)
+[0;32mI (30131) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (30231) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (30331) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (30361) MAIN_DEBUGG_TAG: Servo angle: 50°[0m
+(23,50,260)
+[0;32mI (30431) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (30531) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (30631) MAIN_DEBUGG_TAG: Raw ADC: 283, Voltage: 228 mV, Temp: 22 ºC[0m
+[0;32mI (30731) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (30731) MAIN_DEBUGG_TAG: Servo angle: 60°[0m
+(23,60,260)
+[0;32mI (30831) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (30931) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (31031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (31131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (31131) MAIN_DEBUGG_TAG: Servo angle: 70°[0m
+(23,70,260)
+[0;32mI (31231) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (31331) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (31431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (31511) MAIN_DEBUGG_TAG: Servo angle: 80°[0m
+(23,80,260)
+[0;32mI (31531) MAIN_DEBUGG_TAG: Raw ADC: 371, Voltage: 298 mV, Temp: 29 ºC[0m
+[0;32mI (31631) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (31731) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (31831) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (31931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (31971) MAIN_DEBUGG_TAG: Servo angle: 90°[0m
+(23,90,260)
+[0;32mI (32031) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (32131) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (32231) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (32331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (32431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (32531) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (32631) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (32731) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (32831) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (32931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (33031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (33131) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (33231) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (33331) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (33431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (33531) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (33631) MAIN_DEBUGG_TAG: Raw ADC: 284, Voltage: 228 mV, Temp: 22 ºC[0m
+[0;32mI (33731) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (33831) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (33931) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (33951) MAIN_DEBUGG_TAG: Servo angle: 80°[0m
+(23,80,260)
+[0;32mI (34031) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (34131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (34231) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (34331) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (34331) MAIN_DEBUGG_TAG: Servo angle: 70°[0m
+(23,70,260)
+[0;32mI (34431) MAIN_DEBUGG_TAG: Raw ADC: 315, Voltage: 253 mV, Temp: 25 ºC[0m
+[0;32mI (34531) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (34631) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (34641) MAIN_DEBUGG_TAG: Servo angle: 60°[0m
+(23,60,260)
+[0;32mI (34731) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (34831) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (34891) MAIN_DEBUGG_TAG: Servo angle: 50°[0m
+(23,50,260)
+[0;32mI (34931) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (35031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (35131) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (35231) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (35331) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (35401) MAIN_DEBUGG_TAG: Servo angle: 40°[0m
+(23,40,260)
+[0;32mI (35431) MAIN_DEBUGG_TAG: Raw ADC: 359, Voltage: 289 mV, Temp: 28 ºC[0m
+[0;32mI (35481) UART0_COMM: Sending 300 temperature readings to Raspberry Pi[0m
+TEMP_DATA_START:300
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+22
+23
+22
+23
+22
+23
+23
+23
+22
+22
+22
+23
+23
+23
+23
+23
+22
+23
+23
+23
+22
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+24
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+24
+23
+23
+23
+23
+23
+24
+23
+23
+23
+24
+23
+23
+23
+23
+23
+23
+23
+23
+23
+24
+23
+24
+23
+23
+23
+24
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+22
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+23
+23
+24
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+22
+22
+23
+23
+23
+29
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+22
+24
+23
+23
+23
+[0;32mI (35531) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+23
+23
+23
+23
+23
+23
+29
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+22
+25
+23
+29
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+30
+23
+23
+23
+23
+23
+23
+23
+29
+23
+23
+23
+22
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+23
+29
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+22
+23
+23
+23
+23
+23
+23
+23
+25
+23
+23
+23
+23
+23
+23
+[0;32mI (35561) UART0_COMM: Temperature data sent successfully[0m
+23
+23
+23
+28
+23
+TEMP_DATA_END
+[0;32mI (35631) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (35731) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (35831) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (35931) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (35991) MAIN_DEBUGG_TAG: Servo angle: 30°[0m
+(23,30,260)
+[0;32mI (36031) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (36131) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (36231) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (36331) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (36431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (36531) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (36631) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (36731) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (36801) MAIN_DEBUGG_TAG: Servo angle: 20°[0m
+(22,20,260)
+[0;32mI (36831) MAIN_DEBUGG_TAG: Raw ADC: 371, Voltage: 298 mV, Temp: 29 ºC[0m
+[0;32mI (36931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (37031) MAIN_DEBUGG_TAG: Raw ADC: 294, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (37131) MAIN_DEBUGG_TAG: Raw ADC: 297, Voltage: 239 mV, Temp: 23 ºC[0m
+[0;32mI (37181) MAIN_DEBUGG_TAG: Servo angle: 10°[0m
+(23,10,260)
+[0;32mI (37231) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (37331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (37431) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (37471) MAIN_DEBUGG_TAG: Servo angle: 0°[0m
+(23,0,260)
+[0;32mI (37531) MAIN_DEBUGG_TAG: Raw ADC: 285, Voltage: 229 mV, Temp: 22 ºC[0m
+[0;32mI (37631) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (37691) MAIN_DEBUGG_TAG: Servo angle: -10°[0m
+(23,-10,260)
+[0;32mI (37731) MAIN_DEBUGG_TAG: Raw ADC: 287, Voltage: 231 mV, Temp: 23 ºC[0m
+[0;32mI (37831) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (37931) MAIN_DEBUGG_TAG: Raw ADC: 299, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (38031) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (38131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (38131) MAIN_DEBUGG_TAG: Servo angle: -20°[0m
+(23,-20,260)
+[0;32mI (38231) MAIN_DEBUGG_TAG: Raw ADC: 288, Voltage: 232 mV, Temp: 23 ºC[0m
+[0;32mI (38331) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (38431) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (38441) MAIN_DEBUGG_TAG: Servo angle: -30°[0m
+(23,-30,260)
+[0;32mI (38531) MAIN_DEBUGG_TAG: Raw ADC: 308, Voltage: 248 mV, Temp: 24 ºC[0m
+[0;32mI (38631) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (38691) MAIN_DEBUGG_TAG: Servo angle: -40°[0m
+(23,-40,260)
+[0;32mI (38731) MAIN_DEBUGG_TAG: Raw ADC: 299, Voltage: 240 mV, Temp: 24 ºC[0m
+[0;32mI (38831) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (38931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (39031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (39131) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (39231) MAIN_DEBUGG_TAG: Raw ADC: 296, Voltage: 238 mV, Temp: 23 ºC[0m
+[0;32mI (39331) MAIN_DEBUGG_TAG: Raw ADC: 292, Voltage: 235 mV, Temp: 23 ºC[0m
+[0;32mI (39431) MAIN_DEBUGG_TAG: Raw ADC: 293, Voltage: 236 mV, Temp: 23 ºC[0m
+[0;32mI (39531) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (39631) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (39731) MAIN_DEBUGG_TAG: Raw ADC: 291, Voltage: 234 mV, Temp: 23 ºC[0m
+[0;32mI (39831) MAIN_DEBUGG_TAG: Raw ADC: 286, Voltage: 230 mV, Temp: 23 ºC[0m
+[0;32mI (39931) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m
+[0;32mI (40031) MAIN_DEBUGG_TAG: Raw ADC: 295, Voltage: 237 mV, Temp: 23 ºC[0m

@@ -48,6 +48,7 @@ static void uart_init_config(void);
 static void send_temperature_data(void);
 static void timer_callback(TimerHandle_t xTimer);
 static void temperature_notify_task(void *pvParameters);
+static void send_pwm_update(void);
 static TaskHandle_t temp_task_handle = NULL;
 
 // Global variables
@@ -72,7 +73,7 @@ lv_disp_t *disp = NULL;
 #define MOTOR_SPEED_MAX     390
 
 // Servo angle control constants
-#define SERVO_ANGLE_STEP    10
+#define SERVO_ANGLE_STEP    15
 #define SERVO_ANGLE_MIN     -90
 #define SERVO_ANGLE_MAX     90
 
@@ -239,33 +240,45 @@ static void display_update_task(void *pvParameter) {
     }
 }
 
+static void send_pwm_update(void) {
+    char buffer[64];
+    snprintf(buffer, sizeof(buffer), "(%d,%d,%lu)\n", temperature, servoAngle, motorSpeed);
+    uart_write_bytes(UART_PORT_NUM, buffer, strlen(buffer));
+}
+
+
 static void handle_touch_event(touch_event_t *evt) {
+    bool updated = false;
+
     if (evt->intr_mask & TOUCH_PAD_INTR_MASK_ACTIVE) {
         switch(evt->pad_num) {
             case TOUCH_PAD_NUM2: // Servo zero
                 servoAngle = 0;
                 set_servoAngle(&servoAngle);
                 ESP_LOGI(TAG, "Servo reset to 0°");
+                updated = true;
                 break;
-                
+
             case TOUCH_PAD_NUM3: // Servo negative rotation
                 if (servoAngle > SERVO_ANGLE_MIN) {
                     servoAngle -= SERVO_ANGLE_STEP;
                     if (servoAngle < SERVO_ANGLE_MIN) servoAngle = SERVO_ANGLE_MIN;
                     set_servoAngle(&servoAngle);
                     ESP_LOGI(TAG, "Servo angle: %d°", servoAngle);
+                    updated = true;
                 }
                 break;
-                
+
             case TOUCH_PAD_NUM4: // Servo positive rotation
                 if (servoAngle < SERVO_ANGLE_MAX) {
                     servoAngle += SERVO_ANGLE_STEP;
                     if (servoAngle > SERVO_ANGLE_MAX) servoAngle = SERVO_ANGLE_MAX;
                     set_servoAngle(&servoAngle);
                     ESP_LOGI(TAG, "Servo angle: %d°", servoAngle);
+                    updated = true;
                 }
                 break;
-                
+
             case TOUCH_PAD_NUM5: // Motor speed up
                 if (motorSpeed < MOTOR_SPEED_MAX) {
                     motorSpeed += MOTOR_SPEED_STEP;
@@ -273,9 +286,10 @@ static void handle_touch_event(touch_event_t *evt) {
                     motorRunning = true;
                     set_dcmotorSpeed(&motorSpeed);
                     ESP_LOGI(TAG, "Motor speed increased: %lu", motorSpeed);
+                    updated = true;
                 }
                 break;
-                
+
             case TOUCH_PAD_NUM6: // Motor speed down
                 if (motorSpeed > MOTOR_SPEED_MIN) {
                     motorSpeed -= MOTOR_SPEED_STEP;
@@ -285,18 +299,25 @@ static void handle_touch_event(touch_event_t *evt) {
                     }
                     set_dcmotorSpeed(&motorSpeed);
                     ESP_LOGI(TAG, "Motor speed decreased: %lu", motorSpeed);
+                    updated = true;
                 }
                 break;
-                
+
             case TOUCH_PAD_NUM7: // Motor off
                 motorSpeed = 270;
                 motorRunning = false;
                 set_dcmotorSpeed(&motorSpeed);
                 ESP_LOGI(TAG, "Motor turned off");
+                updated = true;
                 break;
+        }
+
+        if (updated) {
+            send_pwm_update();
         }
     }
 }
+
 
 static void send_temperature_data(void) {
     int temp_data;
