@@ -1,21 +1,20 @@
-#include <stdio.h>
-#include <inttypes.h>
-#include <unistd.h>
-#include <time.h>
+#ifndef TOUCH_H
+#define TOUCH_H
 
 #include "driver/touch_pad.h"
-#include "driver/gpio.h"
 
-#define N (500) //touch threshold
-#define TOUCH_PAD_NO_CHANGE (-1)
-#define TOUCH_THRESH_USE (20000)
-#define TOUCH_FILTER_MODE_EN (1)
-#define TOUCHPAD_FILTER_TOUCH_PERIOD (10)
+#define TOUCH_BUTTON_NUM    6
+#define TOUCH_BUTTON_WATERPROOF_ENABLE 1
+#define TOUCH_BUTTON_DENOISE_ENABLE    1
+#define TOUCH_CHANGE_CONFIG            0
 
 
 
-void touch_init(void);
 
-void servo_touch_read(void);
 
-void dcmotor_touch_read(void);
+
+
+
+
+
+#endif /* TOUCH_H */

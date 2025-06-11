@@ -19,9 +19,14 @@
 #include "adc.h"
 #include "pwm.h"
 #include "ssd1306.h"
+#include "touch.h"
+#include "interrupt.h"
 
-static const char *TAG = "UART_COMMUNICATION";
-static const char *I2C_TAG = "I2C_BUS_CONFIGURATION";
+static const char *TAG = "MAIN_DEBUGG_TAG";
+static const char *ADC_TAG = "ADC_CHANNEL_8";
+static const char *I2C_TAG = "I2C_SD1306_BUS_CONFIGURATION";
+static const char *TAG_TOUCH = "TOUCH_PAD";
+
 
 static esp_err_t drivers_setup();
 
@@ -30,11 +35,57 @@ int voltage;
 int temperature;
 int servoAngle;
 
+/*---- Touch Pad Utils ----*/
+static QueueHandle_t que_touch = NULL;
+
+typedef struct touch_msg {
+    touch_pad_intr_mask_t intr_mask;
+    uint32_t pad_num;
+    uint32_t pad_status;
+    uint32_t pad_val;
+} touch_event_t;
+
+static const touch_pad_t button[TOUCH_BUTTON_NUM] = {
+    TOUCH_PAD_NUM2,     // 'SELECT' button.
+    TOUCH_PAD_NUM3,     // 'MENU' button.
+    TOUCH_PAD_NUM4,    // 'BACK' button.
+    TOUCH_PAD_NUM5,    // Guard ring for waterproof design.
+    TOUCH_PAD_NUM6,
+    TOUCH_PAD_NUM7
+    // If this pad be touched, other pads no response.
+};
+
+/*
+ * Touch threshold. The threshold determines the sensitivity of the touch.
+ * This threshold is derived by testing changes in readings from different touch channels.
+ * If (raw_data - benchmark) > benchmark * threshold, the pad be activated.
+ * If (raw_data - benchmark) < benchmark * threshold, the pad be inactivated.
+ */
+static const float button_threshold[TOUCH_BUTTON_NUM] = {
+    0.2, // 20%.
+    0.2, // 20%.
+    0.2, // 20%.
+    0.2, // 20%.
+    0.2,// 20%
+    0.2 //20%
+};
+
+static void touchsensor_interrupt_cb(void *arg);
+static void touch_pad_set_thresholds(void);
+static void touchsensor_filter_set(touch_filter_mode_t mode);
+static void touch_pad_read_task(void *pvParameter);
+static void touch_pad_init_config(void );
+
+/*---- End Touch Pad Utils ----*/
+
+
+
 lv_disp_t *disp = NULL;
 
 
 void app_main(){
     ESP_ERROR_CHECK(drivers_setup());
+    touch_pad_init_config();
     ESP_LOGI(TAG, "DRIVERS SETTED UP CORRECTLY");
 
     lv_disp_set_rotation(disp, LV_DISP_ROT_NONE);
@@ -45,19 +96,20 @@ void app_main(){
         lvgl_port_unlock();
     }
 
+    xTaskCreate(&touch_pad_read_task, "touch_pad_read_task", 4096, NULL, 5, NULL);
+
     while(1){
         if(adc_lecture(&adcRawValue) == ESP_OK){
             voltage = 3300 * adcRawValue / 4096;
             temperature = voltage / 10;
-
             ESP_LOGI(TAG, "Raw ADC: %d, Voltage: %d mV, Temp: %d ºC", adcRawValue, voltage, temperature);
-
             // Update Text in UI
             if (lvgl_port_lock(0)) {
                 update_adc_label(voltage, temperature);
                 lvgl_port_unlock();
             }
            vTaskDelay(pdMS_TO_TICKS(1000));
+
            servoAngle = 90;
            
             if (lvgl_port_lock(0)) {
@@ -76,14 +128,165 @@ void app_main(){
 
 
 static esp_err_t drivers_setup(){
-    
+    touch_pad_init();
     uart_config_init();
     adc_config_init();
     i2c_master_init();
     ssd1306_init();
     lvgl_init(&disp);
     init_TIMER();
-
+    init_isr();
+    
+    
     return ESP_OK;
 
+}
+
+
+
+static void touchsensor_interrupt_cb(void *arg){
+    int task_awoken = pdFALSE;
+    touch_event_t evt;
+
+    evt.intr_mask = touch_pad_read_intr_status_mask();
+    evt.pad_status = touch_pad_get_status();
+    evt.pad_num = touch_pad_get_current_meas_channel();
+
+    xQueueSendFromISR(que_touch, &evt, &task_awoken);
+    if (task_awoken == pdTRUE) {
+        portYIELD_FROM_ISR();
+    }
+}
+static void touch_pad_set_thresholds(void){
+    uint32_t touch_value;
+    for (int i = 0; i < TOUCH_BUTTON_NUM; i++) {
+        //read benchmark value
+        touch_pad_read_benchmark(button[i], &touch_value);
+        //set interrupt threshold.
+        touch_pad_set_thresh(button[i], touch_value * button_threshold[i]);
+        ESP_LOGI(TAG_TOUCH, "touch pad [%d] base %"PRIu32", thresh %"PRIu32, \
+                 button[i], touch_value, (uint32_t)(touch_value * button_threshold[i]));
+    }
+}
+static void touchsensor_filter_set(touch_filter_mode_t mode){
+        /* Filter function */
+    touch_filter_config_t filter_info = {
+        .mode = mode,           // Test jitter and filter 1/4.
+        .debounce_cnt = 1,      // 1 time count.
+        .noise_thr = 0,         // 50%
+        .jitter_step = 4,       // use for jitter mode.
+        .smh_lvl = TOUCH_PAD_SMOOTH_IIR_2,
+    };
+    touch_pad_filter_set_config(&filter_info);
+    touch_pad_filter_enable();
+    ESP_LOGI(TAG_TOUCH, "touch pad filter init");
+}
+static void touch_pad_read_task(void *pvParameter){
+        touch_event_t evt = {0};
+    static uint8_t guard_mode_flag = 0;
+    /* Wait touch sensor init done */
+    vTaskDelay(50 / portTICK_PERIOD_MS);
+    touch_pad_set_thresholds();
+
+    while (1) {
+        int ret = xQueueReceive(que_touch, &evt, (TickType_t)portMAX_DELAY);
+        if (ret != pdTRUE) {
+            continue;
+        }
+        if (evt.intr_mask & TOUCH_PAD_INTR_MASK_ACTIVE) {
+            /* if guard pad be touched, other pads no response. */
+            if (evt.pad_num == button[3]) {
+                guard_mode_flag = 1;
+                ESP_LOGW(TAG, "TouchSensor [%"PRIu32"] be activated, enter guard mode", evt.pad_num);
+            } else {
+                if (guard_mode_flag == 0) {
+                    ESP_LOGI(TAG, "TouchSensor [%"PRIu32"] be activated, status mask 0x%"PRIu32"", evt.pad_num, evt.pad_status);
+                } else {
+                    ESP_LOGW(TAG, "In guard mode. No response");
+                }
+            }
+        }
+        if (evt.intr_mask & TOUCH_PAD_INTR_MASK_INACTIVE) {
+            /* if guard pad be touched, other pads no response. */
+            if (evt.pad_num == button[3]) {
+                guard_mode_flag = 0;
+                ESP_LOGW(TAG, "TouchSensor [%"PRIu32"] be inactivated, exit guard mode", evt.pad_num);
+            } else {
+                if (guard_mode_flag == 0) {
+                    ESP_LOGI(TAG, "TouchSensor [%"PRIu32"] be inactivated, status mask 0x%"PRIu32, evt.pad_num, evt.pad_status);
+                }
+            }
+        }
+        if (evt.intr_mask & TOUCH_PAD_INTR_MASK_SCAN_DONE) {
+            ESP_LOGI(TAG, "The touch sensor group measurement is done [%"PRIu32"].", evt.pad_num);
+        }
+        if (evt.intr_mask & TOUCH_PAD_INTR_MASK_TIMEOUT) {
+            /* Add your exception handling in here. */
+            ESP_LOGI(TAG, "Touch sensor channel %"PRIu32" measure timeout. Skip this exception channel!!", evt.pad_num);
+            touch_pad_timeout_resume(); // Point on the next channel to measure.
+        }
+    }
+}
+
+static void touch_pad_init_config(void ){
+        if (que_touch == NULL) {
+        que_touch = xQueueCreate(TOUCH_BUTTON_NUM, sizeof(touch_event_t));
+    }
+    // Initialize touch pad peripheral, it will start a timer to run a filter
+    ESP_LOGI(TAG, "Initializing touch pad");
+    /* Initialize touch pad peripheral. */
+    touch_pad_init();
+    for (int i = 0; i < TOUCH_BUTTON_NUM; i++) {
+        touch_pad_config(button[i]);
+    }
+
+#if TOUCH_CHANGE_CONFIG
+    /* If you want change the touch sensor default setting, please write here(after initialize). There are examples: */
+    touch_pad_set_measurement_interval(TOUCH_PAD_SLEEP_CYCLE_DEFAULT);
+    touch_pad_set_charge_discharge_times(TOUCH_PAD_MEASURE_CYCLE_DEFAULT);
+    touch_pad_set_voltage(TOUCH_PAD_HIGH_VOLTAGE_THRESHOLD, TOUCH_PAD_LOW_VOLTAGE_THRESHOLD, TOUCH_PAD_ATTEN_VOLTAGE_THRESHOLD);
+    touch_pad_set_idle_channel_connect(TOUCH_PAD_IDLE_CH_CONNECT_DEFAULT);
+    for (int i = 0; i < TOUCH_BUTTON_NUM; i++) {
+        touch_pad_set_cnt_mode(button[i], TOUCH_PAD_SLOPE_DEFAULT, TOUCH_PAD_TIE_OPT_DEFAULT);
+    }
+#endif
+
+#if TOUCH_BUTTON_DENOISE_ENABLE
+    /* Denoise setting at TouchSensor 0. */
+    touch_pad_denoise_t denoise = {
+        /* The bits to be cancelled are determined according to the noise level. */
+        .grade = TOUCH_PAD_DENOISE_BIT4,
+        /* By adjusting the parameters, the reading of T0 should be approximated to the reading of the measured channel. */
+        .cap_level = TOUCH_PAD_DENOISE_CAP_L4,
+    };
+    touch_pad_denoise_set_config(&denoise);
+    touch_pad_denoise_enable();
+    ESP_LOGI(TAG, "Denoise function init");
+#endif
+
+#if TOUCH_BUTTON_WATERPROOF_ENABLE
+    /* Waterproof function */
+    touch_pad_waterproof_t waterproof = {
+        .guard_ring_pad = button[3],   // If no ring pad, set 0;
+        /* It depends on the number of the parasitic capacitance of the shield pad.
+           Based on the touch readings of T14 and T0, estimate the size of the parasitic capacitance on T14
+           and set the parameters of the appropriate hardware. */
+        .shield_driver = TOUCH_PAD_SHIELD_DRV_L2,
+    };
+    touch_pad_waterproof_set_config(&waterproof);
+    touch_pad_waterproof_enable();
+    ESP_LOGI(TAG, "touch pad waterproof init");
+#endif
+
+    /* Filter setting */
+    touchsensor_filter_set(TOUCH_PAD_FILTER_IIR_16);
+    touch_pad_timeout_set(true, TOUCH_PAD_THRESHOLD_MAX);
+    /* Register touch interrupt ISR, enable intr type. */
+    touch_pad_isr_register(touchsensor_interrupt_cb, NULL, TOUCH_PAD_INTR_MASK_ALL);
+    /* If you have other touch algorithm, you can get the measured value after the `TOUCH_PAD_INTR_MASK_SCAN_DONE` interrupt is generated. */
+    touch_pad_intr_enable(TOUCH_PAD_INTR_MASK_ACTIVE | TOUCH_PAD_INTR_MASK_INACTIVE | TOUCH_PAD_INTR_MASK_TIMEOUT);
+
+    /* Enable touch sensor clock. Work mode is "timer trigger". */
+    touch_pad_set_fsm_mode(TOUCH_FSM_MODE_TIMER);
+    touch_pad_fsm_start();
 }

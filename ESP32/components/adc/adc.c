@@ -4,7 +4,7 @@
 #include "esp_adc/adc_cali.h"
 #include "esp_adc/adc_cali_scheme.h"
 
-#define ADC_CHANNEL      ADC_CHANNEL_9
+#define ADC_CHANNEL      ADC_CHANNEL_8
 #define ADC_ATTENUATION  ADC_ATTEN_DB_12
 
 static adc_oneshot_unit_handle_t adc_handle;

@@ -1,7 +1,0 @@
-CMake Error at run_serial_tool.cmake:67 (message):
-  
-  /home/jflow/.espressif/python_env/idf5.4_py3.10_env/bin/python;;/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3
-  failed.
-
-
-
