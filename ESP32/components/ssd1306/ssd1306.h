@@ -37,6 +37,7 @@ void lvgl_init( lv_disp_t **lvglDisp);
 void example_lvgl_demo_ui(lv_disp_t *disp);
 void update_adc_label(int voltage, int temperature);
 void update_servo_label(int servo_angle);
+void update_dcmotor_label(uint32_t motor_speed);
 void update_generic_label(void *);
 
 

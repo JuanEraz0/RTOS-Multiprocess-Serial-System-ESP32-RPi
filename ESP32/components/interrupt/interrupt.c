@@ -18,7 +18,3 @@ esp_err_t init_isr(void){
 
     return ESP_OK;
 }
-void isr_handler(void *){
-    //ESP_LOGI(INT_TAG, "Hardware interrupt via PUSH BUTTON");
-    
-}

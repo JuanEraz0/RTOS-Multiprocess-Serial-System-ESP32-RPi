@@ -142,6 +142,15 @@ void update_servo_label(int servo_angle)
     }
 }
 
+void update_dcmotor_label(uint32_t motor_speed)
+{
+    if(label_adc) {
+        char buf[64];
+        snprintf(buf, sizeof(buf), "Speed : %lu %%", motor_speed);
+        lv_label_set_text(label_adc, buf);
+    }
+}
+
 
 void update_generic_label(void * genericData){
 

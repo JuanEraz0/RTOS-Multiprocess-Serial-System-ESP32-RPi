@@ -2,7 +2,10 @@
 #include "driver/ledc.h"
 
 static const char *TAG_TIMER = "TIMER";
+static const char *MOTOR_TAG = "DC_MOTOR";
+
 mcpwm_cmpr_handle_t comparator = NULL;
+bdc_motor_handle_t motor = NULL;
 
 static inline uint32_t example_angle_to_compare(int angle)
 {
@@ -58,8 +61,39 @@ void init_TIMER(void){
     ESP_ERROR_CHECK(mcpwm_timer_enable(timer));
     ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
 
+
+
+
 }
 
+void init_bdc_Motor(void){
+    ESP_LOGI(MOTOR_TAG, "Create DC motor");
+    bdc_motor_config_t motor_config = {
+        .pwm_freq_hz = BDC_MCPWM_FREQ_HZ,
+        .pwma_gpio_num = BDC_MCPWM_GPIO_A,
+        .pwmb_gpio_num = BDC_MCPWM_GPIO_B,
+    };
+    bdc_motor_mcpwm_config_t mcpwm_config = {
+        .group_id = 0,
+        .resolution_hz = BDC_MCPWM_TIMER_RESOLUTION_HZ,
+    };
+   
+    ESP_ERROR_CHECK(bdc_motor_new_mcpwm_device(&motor_config, &mcpwm_config, &motor));
+    ESP_LOGI(MOTOR_TAG, "Motor created successfully");
+    
+    ESP_LOGI(MOTOR_TAG, "Enable motor");
+    ESP_ERROR_CHECK(bdc_motor_enable(motor));
+    ESP_LOGI(MOTOR_TAG, "Motor enabled successfully");
+    
+    ESP_LOGI(MOTOR_TAG, "Set motor direction: FORWARD");
+    ESP_ERROR_CHECK(bdc_motor_forward(motor));
+    ESP_LOGI(MOTOR_TAG, "Direction set successfully");
+
+
+}
+void set_dcmotorSpeed(uint32_t *motor_speed){
+    ESP_ERROR_CHECK(bdc_motor_set_speed(motor, *motor_speed));
+}
 void set_servoAngle(int *servo_angle){
         ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(comparator, example_angle_to_compare(*servo_angle)));
         //Add delay, since it takes time for servo to rotate, usually 200ms/60degree rotation under 5V power supply

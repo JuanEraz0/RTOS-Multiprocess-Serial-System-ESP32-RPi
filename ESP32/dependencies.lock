@@ -1,4 +1,14 @@
 dependencies:
+  espressif/bdc_motor:
+    component_hash: 9292b605cfd390ff62225caa93e02700b86377e6a3156620192e4876dcf87b27
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.1.0
   espressif/esp_lcd_sh1107:
     component_hash: 9cc00a4d066e3e1d120fd2006d30612766488379b820804092a9bfedb3c1f93c
     dependencies:
@@ -23,6 +33,16 @@ dependencies:
       registry_url: https://components.espressif.com/
       type: service
     version: 1.4.0
+  espressif/pid_ctrl:
+    component_hash: 17bd99c0160f1c327803aceb088ef0e4ab3410ceb0708cb87fcc950bb62e5698
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.4'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.1.1
   idf:
     source:
       type: idf
@@ -35,9 +55,11 @@ dependencies:
       type: service
     version: 8.3.0
 direct_dependencies:
+- espressif/bdc_motor
 - espressif/esp_lcd_sh1107
 - espressif/esp_lvgl_port
+- espressif/pid_ctrl
 - lvgl/lvgl
-manifest_hash: 2e0a2287c316b5945d9bf3590877ac6087d2fea5ef835f7e87ebc06ab99ba015
+manifest_hash: bdea669289f3673901bf150f0152fe3a1da757d288aef52f688a6fd3ed7d1592
 target: esp32s3
 version: 2.0.0
