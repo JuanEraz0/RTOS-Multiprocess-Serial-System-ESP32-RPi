@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "ESP32",
-    "project_version":    "dc67708-dirty",
+    "project_version":    "3a62bf8-dirty",
     "project_path":       "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32",
     "idf_path":           "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp/esp-idf",
     "build_dir":          "/mnt/499829ea-d324-4eb8-9da7-058982331148/JFLOW/esp32projects/RTOS-Multiprocess-Serial-System-ESP32-RPi/ESP32/build",
