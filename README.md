@@ -1,4 +1,3 @@
-# RTOS-Multiprocess-Serial-System-ESP32-RPi
 # RTOS Multiprocess Serial System (ESP32 ↔ Raspberry Pi)
 
 This project implements a FreeRTOS-based embedded system on an ESP32 that communicates with a Raspberry Pi via UART. The system integrates multitasking, temperature monitoring, touch-based motor and servo control, and real-time UI updates using an OLED display with LVGL.
